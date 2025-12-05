@@ -1,50 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
              version="1.0">
-             
-    <persistence-unit name="default">
-    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    	<non-jta-data-source>java://comp/env/jdbc/servifabrikDS</non-jta-data-source>
-    	<class>org.openxava.session.GalleryImage</class>
-    	<class>org.openxava.web.editors.DiscussionComment</class>
-    	<class>com.openxava.naviox.model.ConfigurationRecord</class>
-    	<class>com.openxava.naviox.model.Folder</class>
-    	<class>com.openxava.naviox.model.History</class>
-    	<class>com.openxava.naviox.model.Module</class>
-    	<class>com.openxava.naviox.model.ModuleRights</class>
-    	<class>com.openxava.naviox.model.Organization</class>
-    	<class>com.openxava.naviox.model.Role</class>
-    	<class>com.openxava.naviox.model.SessionRecord</class>
-    	<class>com.openxava.naviox.model.SSORecord</class>
-    	<class>com.openxava.naviox.model.User</class>
-		<class>com.openxava.naviox.model.LDAPConfiguration</class>
+
+    <!-- OJO: transaction-type="RESOURCE_LOCAL"  -->
+    <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Deja que escanee todas tus entidades -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="update"/>
+            <!-- Config JDBC a PostgreSQL -->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/servifabrik"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+
+            <!-- Dialecto de PostgreSQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Crear/actualizar tablas automáticamente en desarrollo -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Opcional: para ver los SQL en consola -->
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
-                    
-    <!-- JUnit Hypersonic -->
-    <persistence-unit name="junit">
-    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    	<class>org.openxava.web.editors.DiscussionComment</class>
-    	<class>com.openxava.naviox.model.ConfigurationRecord</class>
-    	<class>com.openxava.naviox.model.Folder</class>
-    	<class>com.openxava.naviox.model.History</class>
-    	<class>com.openxava.naviox.model.Module</class>
-    	<class>com.openxava.naviox.model.ModuleRights</class>
-    	<class>com.openxava.naviox.model.Organization</class>
-    	<class>com.openxava.naviox.model.Role</class>
-    	<class>com.openxava.naviox.model.SessionRecord</class>
-    	<class>com.openxava.naviox.model.SSORecord</class>
-    	<class>com.openxava.naviox.model.User</class>
-		<class>com.openxava.naviox.model.LDAPConfiguration</class>
-        <properties>
-			<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost:1666"/>
-        </properties>
-    </persistence-unit>    
-    
+
+    <!-- Si quieres, deja la unidad junit como estaba o elimínala si no la usas -->
 </persistence>

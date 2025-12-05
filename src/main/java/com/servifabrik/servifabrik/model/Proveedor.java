@@ -1,35 +1,33 @@
 package com.servifabrik.servifabrik.model;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import org.openxava.annotations.*;
+import java.util.Collection;
 
 @Entity
 @Getter @Setter
 @View(members =
-        "idCliente;" +
-                "nombre, apellido;" +
+        "idProveedor;" +
+                "nombreProveedor;" +
                 "telefono, correo;" +
                 "direccion"
 )
-@Tab(properties = "idCliente, nombre, apellido, telefono, correo")
-public class Cliente {
+@Tab(properties = "idProveedor, nombreProveedor, telefono, correo")
+public class Proveedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Hidden
-    @Column(name = "id_cliente")
-    private Integer idCliente;
+    @Column(name = "id_proveedor")
+    private Integer idProveedor;
 
-    @Column(length = 25)
+    @Column(name = "nombre_proveedor", length = 60)
     @Required
-    private String nombre;
-
-    @Column(length = 25)
-    @Required
-    private String apellido;
+    private String nombreProveedor;
 
     @Column(length = 15)
     private String telefono;
@@ -37,6 +35,13 @@ public class Cliente {
     @Column(length = 50)
     private String correo;
 
-    @Column(name = "direccion", length = 100)
+    @Column(length = 100)
     private String direccion;
+
+    // Relación 1 -> N con Producto
+    @OneToMany(mappedBy = "proveedor")
+    private Collection<Producto> productos;
+
 }
+
+

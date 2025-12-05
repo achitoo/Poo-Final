@@ -1,4 +1,6 @@
 package com.servifabrik.servifabrik.model;
+
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,11 +12,13 @@ import java.math.BigDecimal;
 @Getter @Setter
 @View(members =
         "idProducto;" +
-                "nombreProducto, categoria;" +
+                "nombreProducto, categoria, proveedor;" +
                 "descripcion;" +
                 "precioUnitario"
 )
-@Tab(properties = "idProducto, nombreProducto, categoria.nombreCategoria, precioUnitario")
+@Tab(properties =
+        "idProducto, nombreProducto, categoria.nombreCategoria, proveedor.nombreProveedor, precioUnitario"
+)
 public class Producto {
 
     @Id
@@ -34,6 +38,11 @@ public class Producto {
     @DescriptionsList(descriptionProperties = "nombreCategoria")
     @Required
     private Categoria categoria;
+
+    // NUEVA RELACIÓN: Producto -> Proveedor
+    @ManyToOne(fetch = FetchType.LAZY)
+    @DescriptionsList(descriptionProperties = "nombreProveedor")
+    private Proveedor proveedor;
 
     @Column(name = "precio_unitario", precision = 10, scale = 2)
     @Required
