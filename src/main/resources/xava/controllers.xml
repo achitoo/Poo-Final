@@ -14,7 +14,64 @@ https://github.com/openxava/openxava/blob/master/openxavatest/src/main/resources
 -->
 
 <controllers>
-    
+    <!--PEdido
+       -->
+    <controller name="PedidoPersonalizado">
+
+        <action name="recalcularTotal"
+                class="com.servifabrik.acciones.RecalcularTotalPedidoAction"
+                mode="detail"
+                icon="calculate"
+                label="Recalcular total">
+        </action>
+
+    </controller>
+    <!--DetallePedido
+   -->
+    <controller name="DetallePedidoPersonalizado">
+
+        <action name="calcularSubtotal"
+                class="com.servifabrik.servifabrik.actions.CalcularSubtotalDetalleAction"
+                mode="detail"
+                icon="calculate"
+                label="Calcular subtotal">
+        </action>
+
+        <action name="validarStock"
+                class="com.servifabrik.servifabrik.actions.ValidarStockDetalleAction"
+                mode="detail"
+                icon="check_circle"
+                label="Validar stock">
+        </action>
+
+    </controller>
+
+    <!--Reponer Inventario
+    -->
+    <controller name="InventarioPersonalizado">
+
+        <action name="reponerInventario"
+                class="com.servifabrik.servifabrik.actions.ReponerInventarioAction"
+                mode="detail"
+                icon="add_circle"
+                label="Reponer inventario">
+        </action>
+    <!-- Pago-->
+    </controller>
+
+    <controller name="PagoPersonalizado">
+
+        <action name="calcularCambio"
+                class="com.servifabrik.servifabrik.actions.CalcularCambioPagoAction"
+                mode="detail"
+                icon="payments"
+                label="Calcular cambio">
+        </action>
+
+    </controller>
+
+
+
     <!-- Environment variable:
     <env-var name="servifabrik_DEFAULT_YEAR" value="2015"/> 
     -->
@@ -34,3 +91,5 @@ https://github.com/openxava/openxava/blob/master/openxavatest/src/main/resources
     -->
     
 </controllers>
+
+
