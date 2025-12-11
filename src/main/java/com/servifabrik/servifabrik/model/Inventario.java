@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Entity
 @Getter @Setter
 @View(members =
-        "idInventario;" +
+
                 "producto, proveedor;" +
                 "cantidadDisponible, costoUnitario;" +
                 "fechaIngreso, ubicacion"

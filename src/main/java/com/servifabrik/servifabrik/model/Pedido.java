@@ -13,7 +13,7 @@ import java.util.Collection;
 @Entity
 @Getter @Setter
 @View(members =
-        "idPedido; fechaPedido; fechaEntrega;" +
+        " fechaPedido; fechaEntrega;" +
                 "cliente, empleado;" +
                 "detalles;" +
                 "montoTotal"

@@ -14,61 +14,64 @@ https://github.com/openxava/openxava/blob/master/openxavatest/src/main/resources
 -->
 
 <controllers>
-    <!--PEdido
-       -->
+
+    <!-- Pedido -->
     <controller name="PedidoPersonalizado">
 
         <action name="recalcularTotal"
-                class="com.servifabrik.acciones.RecalcularTotalPedidoAction"
+                class="com.servifabrik.servifabrik.actions.RecalcularTotalPedidoAction"
                 mode="detail"
                 icon="calculate"
-                label="Recalcular total">
-        </action>
+                label="Recalcular total" />
 
+        <action name="confirmarPedido"
+                class="com.servifabrik.servifabrik.actions.ConfirmarPedidoAction"
+                mode="detail"
+                icon="check_circle"
+                label="Confirmar pedido" />
     </controller>
-    <!--DetallePedido
-   -->
+
+
+    <!-- Detalle Pedido -->
     <controller name="DetallePedidoPersonalizado">
 
         <action name="calcularSubtotal"
                 class="com.servifabrik.servifabrik.actions.CalcularSubtotalDetalleAction"
                 mode="detail"
                 icon="calculate"
-                label="Calcular subtotal">
-        </action>
+                label="Calcular subtotal" />
 
         <action name="validarStock"
                 class="com.servifabrik.servifabrik.actions.ValidarStockDetalleAction"
                 mode="detail"
                 icon="check_circle"
-                label="Validar stock">
-        </action>
-
+                label="Validar stock" />
     </controller>
 
-    <!--Reponer Inventario
-    -->
+
+    <!-- Inventario -->
     <controller name="InventarioPersonalizado">
 
         <action name="reponerInventario"
                 class="com.servifabrik.servifabrik.actions.ReponerInventarioAction"
                 mode="detail"
                 icon="add_circle"
-                label="Reponer inventario">
-        </action>
-    <!-- Pago-->
+                label="Reponer inventario" />
     </controller>
 
+
+    <!-- Pago -->
     <controller name="PagoPersonalizado">
 
         <action name="calcularCambio"
                 class="com.servifabrik.servifabrik.actions.CalcularCambioPagoAction"
                 mode="detail"
                 icon="payments"
-                label="Calcular cambio">
-        </action>
-
+                label="Calcular cambio" />
     </controller>
+
+</controllers>
+
 
 
 
@@ -90,6 +93,5 @@ https://github.com/openxava/openxava/blob/master/openxavatest/src/main/resources
 	</controller>    
     -->
     
-</controllers>
 
 

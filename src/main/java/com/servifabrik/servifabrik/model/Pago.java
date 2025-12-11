@@ -1,5 +1,6 @@
 package com.servifabrik.servifabrik.model;
 
+import com.servifabrik.servifabrik.enums.MetodoPago;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 @Getter @Setter
 @View(members =
-        "idPago; factura;" +
+        " factura;" +
                 "tipoPago, fechaPago;" +
                 "monto"
 )
@@ -29,9 +30,9 @@ public class Pago {
     @Required
     private Factura factura;
 
-    @Column(name = "tipo_pago", length = 20)
+    @Enumerated(EnumType.STRING)
     @Required
-    private String tipoPago; // Efectivo, Tarjeta, Transferencia, etc.
+    private MetodoPago metodoPago;
 
     @Column(name = "fecha_pago")
     @Required

@@ -10,7 +10,7 @@ import org.openxava.annotations.*;
 @Entity
 @Getter @Setter
 @View(members =
-        "idEmpleado;" +
+
                 "nombre, apellido;" +
                 "cargo;" +
                 "telefono, correo"

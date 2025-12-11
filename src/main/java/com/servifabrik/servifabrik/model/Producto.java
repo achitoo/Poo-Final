@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Entity
 @Getter @Setter
 @View(members =
-        "idProducto;" +
+
                 "nombreProducto, categoria, proveedor;" +
                 "descripcion;" +
                 "precioUnitario"

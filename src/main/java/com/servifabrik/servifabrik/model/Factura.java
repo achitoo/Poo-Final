@@ -1,5 +1,6 @@
 package com.servifabrik.servifabrik.model;
 
+import com.servifabrik.servifabrik.enums.EstadoFactura;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 @Getter @Setter
 @View(members =
-        "idFactura; numeroFactura;" +
+        " numeroFactura;" +
                 "pedido; fechaFactura;" +
                 "totalFactura; estadoFactura"
 )
@@ -41,7 +42,8 @@ public class Factura {
     @Required
     private BigDecimal totalFactura;
 
-    @Column(name = "estado_factura", length = 20)
-    private String estadoFactura;
+    @Enumerated(EnumType.STRING)
+    @Required
+    private EstadoFactura estadoFactura;
 }
 

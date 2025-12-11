@@ -15,7 +15,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @View(members =
-        "idCategoria;" +
+
                 "nombreCategoria, descripcion"
 )
 @Tab(properties = "idCategoria, nombreCategoria")

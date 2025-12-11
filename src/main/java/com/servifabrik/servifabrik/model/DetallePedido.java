@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Getter @Setter
-@Tab(properties = "pedido.idPedido, producto.nombreProducto, cantidad, precioUnitario, subtotal")
+@Tab(properties = " producto.nombreProducto, cantidad, precioUnitario, subtotal")
 public class DetallePedido {
 
     @Id

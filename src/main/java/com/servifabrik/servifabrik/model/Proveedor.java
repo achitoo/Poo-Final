@@ -11,7 +11,7 @@ import java.util.Collection;
 @Entity
 @Getter @Setter
 @View(members =
-        "idProveedor;" +
+
                 "nombreProveedor;" +
                 "telefono, correo;" +
                 "direccion"

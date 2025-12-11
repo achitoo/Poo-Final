@@ -1,5 +1,6 @@
 package com.servifabrik.servifabrik.actions;
 
+import com.servifabrik.servifabrik.enums.EstadoFactura;    // 👈 IMPORTANTE
 import com.servifabrik.servifabrik.model.Factura;
 import com.servifabrik.servifabrik.model.Pedido;
 import org.openxava.actions.ViewBaseAction;
@@ -37,7 +38,7 @@ public class ConfirmarPedidoAction extends ViewBaseAction {
             return;
         }
 
-        // 4) (Opcional) Podrías validar que tenga detalles
+        // 4) (Opcional) Validar que tenga detalles
         // if (pedido.getDetalles() == null || pedido.getDetalles().isEmpty()) {
         //     addError("El pedido no tiene detalles. Agrega productos antes de confirmarlo.");
         //     return;
@@ -49,7 +50,7 @@ public class ConfirmarPedidoAction extends ViewBaseAction {
         factura.setPedido(pedido);
         factura.setFechaFactura(LocalDate.now());
         factura.setTotalFactura(total);
-        factura.setEstadoFactura("Emitida");
+        factura.setEstadoFactura(EstadoFactura.PENDIENTE);  // 👈 AQUÍ USAMOS EL ENUM
 
         // 6) Guardar factura
         XPersistence.getManager().persist(factura);
